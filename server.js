@@ -1,4 +1,4 @@
-
+const path = require('path')
 const { Router } = require('express')
 const express = require('express')
 const app = express()
@@ -36,14 +36,15 @@ const characters = [{
 // //*
 // * HTML ROUTES
 // */
-    // app.get('/', (req, res)=>{
-    //     console.log
-    //     res.sendFile
-    // })
-    
+
 //  API ROUTERS
 app.get('/',(req, res)=>{
-    res.send('May the force be with you!')
+    res.sendFile( path.join(__dirname + '/public/add.html') )
+    // res.send('May the force be with you!')
+})
+app.get('/add', (req, res) =>{
+    res.sendFile( path.join(__dirname + '/public/index.html') )
+
 })
 /**
  * ApI ROUTEs
