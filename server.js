@@ -1,5 +1,5 @@
 const path = require('path')
-const { Router } = require('express')
+// const { Router } = require('express')
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 3000
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-const characters = [{
+const characters = [
+    {
     name: 'Yoda',
     role: 'Jedi Master', 
     forcePoints: 100000,
@@ -69,13 +70,10 @@ app.post('/api/characters/add', (req ,res)=>{
     // console.log(req.body)
     const newCharacter = req.body
     newCharacter.routeName = newCharacter.name.replace(/ /g, '').toLowerCase()
-
-    characters.push(newCharacter)
     res.status(200).send()
-    // characters.push(newCharacter)
-    // console.log(characters)
-    // res.end()
+    characters.push(newCharacter)
 })
+
 app.listen(PORT, ()=>{
     console.log(`Server listening on http://localhost:${PORT}`)
 })
