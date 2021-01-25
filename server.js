@@ -33,32 +33,33 @@ const characters = [{
     routeName: 'princessleia'
 }
 ]
-// //*
-// * HTML ROUTES
-// */
+ /** 
+ * HTML ROUTES
+ */
 
 //  API ROUTERS
-app.get('/',(req, res)=>{
-    res.sendFile( path.join(__dirname + '/public/add.html') )
+app.get('/', (req, res) => {
+    res.sendFile( path.join(__dirname + '/public/index.html'))
     // res.send('May the force be with you!')
 })
-app.get('/add', (req, res) =>{
-    res.sendFile( path.join(__dirname + '/public/index.html') )
+app.get('/add', (req, res) => {
+    res.sendFile( path.join(__dirname + '/public/add.html'))
 
 })
 /**
  * ApI ROUTEs
  */
+
 // /api/characters = show all character data
-app.get('/api/characters', (req,res)=>{
+app.get('/api/characters', (req,res) => {
     res.json(characters)
     
 })
 // /api/characters/:routeName
 
-app.get('/api/characters/:routeName', (req, res)=>{
+app.get('/api/characters/:routeName', (req, res) => {
     const targetcharacter = req.params.routeName
-    const character =characters.find(character =>{
+    const character =characters.find(character => {
         return character.routeName === targetcharacter
     })
     res.json(character)

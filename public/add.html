@@ -56,11 +56,35 @@
         <input type="text" class="form-control" id="avatar" name="avatar" aria-describedby="avatarHelp">
         <div id="avatarHelp" class="form-text">Paste in a URL</div>
       </div>
-      <button type="submit" name="submit">Add  Character</button>
+      <button type="submit" name="submit">Add Character</button>
       <form>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    const form = $('form')
+    const avatar = $('#avatar')
+    const name = $('#name')
+    const age = $('#age')
+    const role = $('#role')
+    const forcePoints = $('#forcePoints')
+    form.on('sumbit', e => {
+      e.preventDefault()
+      const data = {
+        name: name.val(),
+        age: age.val(),
+        role: role.val(),
+        forcePoints: forcePoints.val(),
+      }
+
+      $.ajax({
+        url: '/api/character/add',
+        method: 'POST',
+         data,
+      }).then(response => alert('Character Added'))
+      .catch(err =>console.log(err))
+    })
+  </script>
 </body>
 
 </html>
