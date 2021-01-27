@@ -57,17 +57,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     const form = $('form')
-    const searchInput = $('#search')
+    const searchInput = $('#Search')
     const avatar = $('#avatar')
     const name = $('#name')
     const age = $('#age')
     const role = $('#role')
     const forcePoints = $('#forcePoints')
-
     form.on('sumbit', e => {
       e.preventDefault()
-      const searchInput = searchInput.val()
-      $.ajax(`/api/characters/${searchTerm}`)
+      const searchTerm = searchInput.val()
+      // console.log(searchInput)
+      $.ajax(`/api/characters/${SearchTerm}`)
         .then(CharacterData => {
           // console.log(CharacterData)
           avatar.attr('src', CharacterData.avatar)

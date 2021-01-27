@@ -53,14 +53,15 @@ app.get('/add', (req, res) => {
 
 // /api/characters = show all character data
 app.get('/api/characters', (req,res) => {
-    res.json(characters)
-    
+    res.json(characters) 
 })
 // /api/characters/:routeName
 
 app.get('/api/characters/:routeName', (req, res) => {
+
     const targetcharacter = req.params.routeName
     const character =characters.find(character => {
+
         return character.routeName === targetcharacter
     })
     res.json(character)
@@ -70,8 +71,8 @@ app.post('/api/characters/add', (req ,res)=>{
     // console.log(req.body)
     const newCharacter = req.body
     newCharacter.routeName = newCharacter.name.replace(/ /g, '').toLowerCase()
-    res.status(200).send()
     characters.push(newCharacter)
+    res.status(200).send()
 })
 
 app.listen(PORT, ()=>{
