@@ -42,10 +42,10 @@
       </div>
     </form>
         <div class="row">
-          <div id="avatar-container" class="col-md">
-            <imag id="avatar" />
+          <div class="col-md">
+            <img id="avatarImg" />
           </div>
-          <div id="character-data" class="col-md">
+          <div class="col-md">
             <p>Name: <span id="name"></span></p>
             <p>Age: <span id="age"></span></p>
             <p>Force Points: <span id="forcePoints"></span><p>
@@ -58,19 +58,17 @@
   <script>
     const form = $('form')
     const searchInput = $('#Search')
-    const avatar = $('#avatar')
+    const avatar = $('#avatarImg')
     const name = $('#name')
     const age = $('#age')
     const role = $('#role')
     const forcePoints = $('#forcePoints')
-    form.on('sumbit', e => {
+    form.on('submit', e => {
       e.preventDefault()
-      const searchTerm = searchInput.val()
-      // console.log(searchInput)
+      const SearchTerm = searchInput.val()
       $.ajax(`/api/characters/${SearchTerm}`)
         .then(CharacterData => {
-          // console.log(CharacterData)
-          avatar.attr('src', CharacterData.avatar)
+          avatar.attr('src', CharacterData.avatarImg)
           name.text(CharacterData.name)
           age.text(CharacterData.age)
           role.text(CharacterData.role)

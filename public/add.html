@@ -67,14 +67,17 @@
     const age = $('#age')
     const role = $('#role')
     const forcePoints = $('#forcePoints')
-    form.on('sumbit', e => {
+    form.on('submit', e => {
       e.preventDefault()
       const data = {
         name: name.val(),
         age: age.val(),
         role: role.val(),
         forcePoints: forcePoints.val(),
+        avatar:avatar.val(),
+
       }
+      // console.log(data)
 
       $.ajax({
         url: '/api/characters/add',
