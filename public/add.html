@@ -62,11 +62,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     const form = $('form')
-    const avatar = $('#avatar')
     const name = $('#name')
     const age = $('#age')
     const role = $('#role')
     const forcePoints = $('#forcePoints')
+    const avatar = $('#avatar')
     form.on('submit', e => {
       e.preventDefault()
       const data = {
@@ -75,7 +75,6 @@
         role: role.val(),
         forcePoints: forcePoints.val(),
         avatar:avatar.val(),
-
       }
       // console.log(data)
 
